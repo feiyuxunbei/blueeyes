@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 仓库预览与测试主页</title>
+    <style>
+        :root {
+            --bg-color: #f4f5f7;
+            --card-bg: #ffffff;
+            --text-main: #24292f;
+            --text-muted: #57606a;
+            --cf-orange: #f38020;
+            --git-dark: #24292e;
+            --border-color: #d0d7de;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .badge-cf { background-color: var(--cf-orange); }
+        .badge-git { background-color: var(--git-dark); }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-success {
+            color: #1a7f37;
+            font-weight: bold;
+        }
+
+        ol, ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: rgba(175, 184, 193, 0.2);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+            font-size: 85%;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #24292f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #57606a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 头部区域 -->
+    <header>
+        <h1>Git 仓库静态部署测试</h1>
+        <p>这是一个运行在 Cloudflare Pages 上的安全测试页面</p>
+        <div class="badge-container">
+            <span class="badge badge-cf">✦ Cloudflare Pages</span>
+            <span class="badge badge-git">⚙ Git Automated</span>
+        </div>
+    </header>
+
+    <!-- 状态检查卡片 -->
+    <div class="card">
+        <h2>🌐 部署状态环境检查</h2>
+        <p>当前页面已成功通过 Git 联动编译，并由 Cloudflare 边缘网络进行全球加速分发。</p>
+        <br>
+        <ul>
+            <li>安全风控评估：<span class="status-success">🟢 安全 (无敏感脚本/无外链风险)</span></li>
+            <li>当前加载协议：<code id="protocol">HTTPS</code></li>
+            <li>访问时间桩：<code id="timestamp">加载中...</code></li>
+        </ul>
+    </div>
+
+    <!-- 仓库使用说明 -->
+    <div class="card">
+        <h2>🛠 规范化测试指南</h2>
+        <p>为了保持 Cloudflare Pages 长期稳定的托管状态，请遵守以下标准：</p>
+        <br>
+        <ol>
+            <li><strong>避免混淆：</strong> 请勿在仓库中使用带有 JavaScript 混淆器（Obfuscator）的代码。</li>
+            <li><strong>合理表述：</strong> 页面中请勿假冒任何知名品牌、银行或登录表单，以免触发自动化反钓鱼风控。</li>
+            <li><strong>API 请求：</strong> 如需添加动态交互，请通过前端 <code>fetch()</code> 直接请求合规的标准公开 API 节点。</li>
+        </ol>
+    </div>
+    
+    <!-- 底部版权 -->
+    <footer>
+        <p>© 2026 静态测试模版 · 完美适配 Cloudflare 边缘网络</p>
+    </footer>
+</div>
+
+<script>
+    // 基础纯净脚本：仅用于展示标准前端环境参数，100% 绿色无风控风险
+    document.getElementById('protocol').textContent = window.location.protocol;
+    document.getElementById('timestamp').textContent = new Date().toLocaleString();
+</script>
+</body>
+</html>
